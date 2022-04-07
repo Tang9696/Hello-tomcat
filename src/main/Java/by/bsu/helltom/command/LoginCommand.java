@@ -17,6 +17,7 @@ public class LoginCommand implements Command {
         UserDao dao = new UserDao();
         User user = dao.login(login,password);
 
+
         if(user != null){
             req.setAttribute("user",user);
             return "WEB-INF/view/main.jsp";
