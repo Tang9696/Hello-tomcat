@@ -16,6 +16,7 @@ public class LoginCommand implements Command {
 
         UserDao dao = new UserDao();
         User user = dao.login(login,password);
+        System.out.println("haha");
 
         if(user != null){
             req.setAttribute("user",user);
