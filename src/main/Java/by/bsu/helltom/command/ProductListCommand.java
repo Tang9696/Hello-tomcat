@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.List;
 
-public class BookListCommand implements Command{
+public class ProductListCommand implements Command{
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ClassNotFoundException {
 
@@ -16,6 +16,6 @@ public class BookListCommand implements Command{
         List<Product> products = dao.findAll();
         req.setAttribute("products",products);
 
-        return "WEB-INF/view/book-list.jsp";
+        return "WEB-INF/view/pro-list.jsp";
     }
 }

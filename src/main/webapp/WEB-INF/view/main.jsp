@@ -9,7 +9,7 @@
     <h2>Hello</h2>
     <c:if test="${user != null}">
     <div class="center">
-    <p><a href="controller?command=bookList">Book list</a></p>
+    <p><a href="controller?command=proList">Product list</a></p>
     <br/>
     <p><a href="controller?command=addproindex">Add product</a></p>
     <br/>

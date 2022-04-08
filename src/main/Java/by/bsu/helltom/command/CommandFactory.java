@@ -1,13 +1,13 @@
 package by.bsu.helltom.command;
 
-public class CommandFactory extends BookListCommand{
+public class CommandFactory extends ProductListCommand {
 
     public Command create(String command){
         switch (command){
             case "login":
                 return new LoginCommand();
-            case "bookList":
-                return (Command) new BookListCommand();
+            case "proList":
+                return (Command) new ProductListCommand();
             case "addproindex":
                 return (Command) new AddProIndexCommand();
             case "addpro":

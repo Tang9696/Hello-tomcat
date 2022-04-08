@@ -11,7 +11,6 @@
         <table border="1" >
             <thead align="center">
 
-        	<td>id</td>
         	<td>name</td>
         	<td>images</td>
         	<td>price</td>
@@ -31,7 +30,6 @@
             <tbody>
             <tr>
         	    <form action="" method="post" style="text-align: center;">
-        			<td>${product.id}</td>
         			<td>${product.name}</td>
         			<td><img style="width: 200px; height: 100px;" src="${product.images}"data-holder-rendered="true"></td>
         			<td>${product.price}</td>

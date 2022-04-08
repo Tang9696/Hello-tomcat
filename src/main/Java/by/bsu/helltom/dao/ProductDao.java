@@ -53,17 +53,17 @@ public class ProductDao {
         Connection connection = connectionFactory.ConnectionFactory();
         Statement statement = connection.createStatement();
 
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `sellgoods`.`product` (`proid`, `cate_proid`, `name`, `images`, `introduce`, `price`, `stock`, `status`, `createtime`, `updatetime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        preparedStatement.setInt(1,product.getId());
-        preparedStatement.setInt(2,product.getCate_proid());
-        preparedStatement.setString(3,product.getName());
-        preparedStatement.setString(4,product.getImages());
-        preparedStatement.setString(5,product.getIntroduce());
-        preparedStatement.setString(6,product.getPrice());
-        preparedStatement.setInt(7,product.getStock());
-        preparedStatement.setInt(8,product.getStatus());
-        preparedStatement.setString(9, product.getCreatetime());
-        preparedStatement.setString(10, product.getUpdatetime());
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `sellgoods`.`product` (`proid`,`cate_proid`, `name`, `images`, `introduce`, `price`, `stock`, `status`, `createtime`, `updatetime`) VALUES (null,?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        preparedStatement.setInt(1,product.getCate_proid());
+        preparedStatement.setString(2,product.getName());
+        preparedStatement.setString(3,product.getImages());
+        preparedStatement.setString(4,product.getIntroduce());
+        preparedStatement.setString(5,product.getPrice());
+        preparedStatement.setInt(6,product.getStock());
+        preparedStatement.setInt(7,product.getStatus());
+        preparedStatement.setString(8, product.getCreatetime());
+        preparedStatement.setString(9, product.getUpdatetime());
         preparedStatement.executeUpdate();
 
     }
@@ -78,9 +78,10 @@ public class ProductDao {
             Integer stock = resultSet.getInt("stock");
             Integer status = resultSet.getInt("status");
             String price = resultSet.getString("price");
+            String introduce = resultSet.getString("introduce");
             String createtime = resultSet.getString("createtime");
             String updatetime = resultSet.getString("updatetime");
-            Product product = new Product(id,cate_proid, name,images,"",price,stock,status,createtime,updatetime);
+            Product product = new Product(id,cate_proid, name,images,introduce,price,stock,status,createtime,updatetime);
             products.add(product);
         }
         return products;

@@ -34,6 +34,7 @@ public class Product {
         this.updatetime = updatetime;
     }
 
+
     public Integer getId() {
         return id;
     }
@@ -112,5 +113,23 @@ public class Product {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", cate_proid=" + cate_proid +
+                ", name='" + name + '\'' +
+                ", images='" + images + '\'' +
+                ", introduce='" + introduce + '\'' +
+                ", price='" + price + '\'' +
+                ", stock=" + stock +
+                ", status=" + status +
+                ", date=" + date +
+                ", formatter=" + formatter +
+                ", createtime='" + createtime + '\'' +
+                ", updatetime='" + updatetime + '\'' +
+                '}';
     }
 }

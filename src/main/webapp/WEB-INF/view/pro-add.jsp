@@ -1,5 +1,5 @@
- <%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="utf-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
    <link rel="stylesheet" type="text/css" href="style.css">
@@ -7,14 +7,7 @@
     <body>
         <h2>add product page</h2>
         <div class="center2">
-        <form action="controller?command=addpro" method="post" style="margin: auto auto; text-align: center;" enctype="multipart/form-data">
-
-
-               <p><span>id:</span><p>
-               <input type="text" name="id"/>
-
-        <br/>
-
+        <form action="controller?command=addpro" method="post" style="margin: auto auto; text-align: center;">
                 <p><span>cate_proid:</span></p>
                 <input type="text" name="cate_proid"/>
 
@@ -22,11 +15,6 @@
 
                 <p><span>name:</span></p>
                 <input type="text" name="name"/>
-
-        <br/>
-
-                <p><span>images:</span></p>
-                <input type="file" name="images" value="choose the pic"/>
 
         <br/>
 
