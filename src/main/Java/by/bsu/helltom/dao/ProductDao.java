@@ -1,5 +1,6 @@
 package by.bsu.helltom.dao;
 
+import by.bsu.helltom.entity.Category;
 import by.bsu.helltom.entity.Product;
 
 import java.sql.*;
@@ -19,7 +20,7 @@ public class ProductDao {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.ConnectionFactory();
         Statement statement = connection.createStatement();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from product where proid = ?");
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from product a,category b where a.cate_proid =b.categoryid and proid = ?");
         preparedStatement.setInt(1,id);
         ResultSet resultSet = preparedStatement.executeQuery();
         List<Product> products = map(resultSet);
@@ -37,8 +38,8 @@ public class ProductDao {
     public List<Product> findAll() throws SQLException, ClassNotFoundException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.ConnectionFactory();
-        Statement statement = connection.createStatement();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from product");
+        //PreparedStatement preparedStatement = connection.prepareStatement("select * from product a");
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from product a,category b WHERE a.cate_proid =b.categoryid");
         ResultSet resultSet = preparedStatement.executeQuery();
         return map(resultSet);
     }
@@ -81,9 +82,40 @@ public class ProductDao {
             String introduce = resultSet.getString("introduce");
             String createtime = resultSet.getString("createtime");
             String updatetime = resultSet.getString("updatetime");
-            Product product = new Product(id,cate_proid, name,images,introduce,price,stock,status,createtime,updatetime);
+
+            Category category = new Category();
+            category.setCategoryid(resultSet.getInt("categoryid"));
+            category.setTypename(resultSet.getString("typename"));
+
+            Product product = new Product(id,cate_proid, name,images,introduce,price,stock,status,createtime,updatetime,category);
             products.add(product);
         }
         return products;
+    }
+
+    public void delete(Integer id) throws SQLException, ClassNotFoundException {
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        Connection connection = connectionFactory.ConnectionFactory();
+        Statement statement = connection.createStatement();
+
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from product where proid = ?");
+        preparedStatement.setInt(1,id);
+        preparedStatement.executeUpdate();
+    }
+
+    public void updetepro(int id_new, String name, int cate_proid_new, String introduce, Double price, int stock_new, String updatetime) throws SQLException, ClassNotFoundException {
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        Connection connection = connectionFactory.ConnectionFactory();
+        Statement statement = connection.createStatement();
+
+        PreparedStatement preparedStatement = connection.prepareStatement("update product set cate_proid=?,name=?,introduce=?,price=?,stock=?,updatetime=? where proid = ?");
+        preparedStatement.setInt(1,cate_proid_new);
+        preparedStatement.setString(2,name);
+        preparedStatement.setString(3,introduce);
+        preparedStatement.setDouble(4,price);
+        preparedStatement.setInt(5,stock_new);
+        preparedStatement.setString(6,updatetime);
+        preparedStatement.setInt(7,id_new);
+        preparedStatement.executeUpdate();
     }
 }

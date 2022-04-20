@@ -12,9 +12,12 @@
         </div>
 
         <div class="list">
-        <h2>add product page</h2>
+        <h2>update product page</h2>
         <div class="center2">
-        <form action="controller?command=addpro" method="post" enctype="multipart/form-data" style="margin: auto auto; text-align: center;">
+        <form action="controller?command=uppro" method="post" style="margin: auto auto; text-align: center;">
+        <div style ="display:none">
+            <input type="text" value="${product.id}" name="id"/>
+        </div>
                 <p><span>category:</span></p>
              <select name="cate_proid">
                 <c:forEach items="${category}" var="category">
@@ -25,26 +28,22 @@
         <br/>
 
                 <p><span>name:</span></p>
-                <input type="text" name="name"/>
+                <input type="text" value="${product.name}" name="name"/>
 
         <br/>
-                <p><span>image:</span></p>
-                <input type="file" name="images"/>
-
-            <br/>
 
                 <p><span>introduce:</span></p>
-                <textarea name="introduce"></textarea>
+                <textarea value="${product.introduce}" name="introduce"></textarea>
 
         <br/>
 
                 <p><span>price:</span></p>
-                <input type="text" name="price"/>
+                <input type="text" value="${product.price}" name="price"/>
 
         <br/>
 
                 <p><span>stock:</span></p>
-                <input type="text" name="stock"/>
+                <input type="text" value="${product.stock}" name="stock"/>
 
         <br/>
 

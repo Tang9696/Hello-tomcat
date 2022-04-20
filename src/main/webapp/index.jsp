@@ -6,6 +6,16 @@
    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
     <body>
+    <%
+        Object message = request.getAttribute("message");
+        if(message!=null && !"".equals(message)){
+
+    %>
+    <script type="text/javascript">
+        alert("<%=request.getAttribute("message")%>");
+    </script>
+    <%} %>
+
        <h2>Login Page</h2>
       <div class="center">
       <form action="controller?command=login" method="post">

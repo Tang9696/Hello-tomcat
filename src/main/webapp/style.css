@@ -21,3 +21,102 @@ body{
   margin-left: auto;
   margin-right:auto;
 }
+
+.center3{
+ width: 300px;
+ height: 300px;
+ text-align:center;
+}
+.center4{
+ width: 300px;
+ height: 400px;
+ text-align:center;
+}
+.center5{
+  width: 300px;
+  height: 300px;
+  border: double white;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.menu{
+  width: 300px;
+  height: 400px;
+  text-align:center;
+  margin-top: 100px;
+  margin-left: 10px;
+  vertical-align:middle;
+  float:left;
+}
+
+.list{
+  width: 1000px;
+  text-align:center;
+  padding-top: 100px;
+  padding-left: 80px;
+  vertical-align:middle;
+  float:left;
+}
+.list1{
+  width: 1000px;
+  text-align:center;
+  padding-top: 100px;
+  padding-left: 80px;
+  vertical-align:middle;
+  float:left;
+}
+
+.add{
+padding-top:30px;
+width:100px;
+height:50px;
+}
+
+
+.helloadmin{
+  width: 1000px;
+  text-align:center;
+  padding-top: 100px;
+  padding-left: 80px;
+  vertical-align:middle;
+  float:left;
+  color:red;
+  font-size:40px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.tddiv{
+    text-align: center;
+}
+
+.ci{
+    width: 700px;
+    height: 140px;
+    border: double;
+    border-color: white;
+ }
+
+.ck{
+    width: 200px;
+    height: 140px;
+    vertical-align:middle;
+    float:left;
+}
+.cki{
+    width: 300px;
+    height: 115px;
+    float:left;
+    padding-top:20px;
+    border: double;
+    border-color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.ckl{
+    height: 150px;
+    padding-top: 50px;
+}

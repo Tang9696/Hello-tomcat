@@ -2,6 +2,9 @@ package by.bsu.helltom.entity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Product {
 
@@ -17,6 +20,11 @@ public class Product {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String createtime = formatter.format(date);
     String updatetime = formatter.format(date);
+
+    private Category category;
+
+    //商品和订单为多对多，所以要在各方创建set集合
+    private List<Orderitem> orderitem;
 
     public Product() {
     }
@@ -34,6 +42,19 @@ public class Product {
         this.updatetime = updatetime;
     }
 
+    public Product(Integer id, Integer cate_proid, String name, String images, String introduce, String price, Integer stock, Integer status, String createtime, String updatetime, Category category) {
+        this.id = id;
+        this.cate_proid = cate_proid;
+        this.name = name;
+        this.images = images;
+        this.introduce = introduce;
+        this.price = price;
+        this.stock = stock;
+        this.status = status;
+        this.createtime = createtime;
+        this.updatetime = updatetime;
+        this.category = category;
+    }
 
     public Integer getId() {
         return id;
@@ -113,6 +134,22 @@ public class Product {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public List<Orderitem> getOrderitem() {
+        return orderitem;
+    }
+
+    public void setOrderitem(List<Orderitem> orderitem) {
+        this.orderitem = orderitem;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
