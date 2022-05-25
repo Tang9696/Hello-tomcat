@@ -24,14 +24,12 @@ public class Order {
     public Order() {
     }
 
-    public Order(Integer orderid, User user, String ordernumber, double payment, Integer status, Date date, SimpleDateFormat formatter, String paymenttime, String cancellationtime, String createtime, String updatetime) {
+    public Order(Integer orderid, User user, String ordernumber, double payment, Integer status, String paymenttime, String cancellationtime, String createtime, String updatetime) {
         this.orderid = orderid;
         this.user = user;
         this.ordernumber = ordernumber;
         this.payment = payment;
         this.status = status;
-        this.date = date;
-        this.formatter = formatter;
         this.paymenttime = paymenttime;
         Cancellationtime = cancellationtime;
         this.createtime = createtime;

@@ -14,6 +14,7 @@ public class ProductListCommand implements Command{
 
         ProductDao dao = new ProductDao();
         List<Product> products = dao.findAll();
+
         req.setAttribute("products",products);
 
         return "WEB-INF/view/pro-list.jsp";

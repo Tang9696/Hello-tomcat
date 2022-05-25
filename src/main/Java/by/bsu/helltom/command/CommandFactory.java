@@ -24,6 +24,10 @@ public class CommandFactory extends ProductListCommand {
                 return (Command) new UpCateIndexCommand();
             case "addpro":
                 return (Command) new AddProCommand();
+            case "addcart":
+                return (Command) new AddCartCommand();
+            case "addorder":
+                return (Command) new AddOrderCommand();
             case "uppro":
                 return (Command) new UpProCommand();
             case "upcate":

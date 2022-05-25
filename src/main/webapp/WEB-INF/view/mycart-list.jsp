@@ -19,7 +19,7 @@
 
         	<td style="width:130px;">Product Name</td>
         	<td style="width:90px;">Price</td>
-        	<td style="width:130px;">createtime</td>
+        	<td style="width:180px;">createtime</td>
         	<td style="width:90px;">Editor</td>
         	<td style="width:90px;">Delete</td>
 

@@ -6,6 +6,16 @@
  </head>
 
      <body>
+     <%
+         Object message = request.getAttribute("message");
+         if(message!=null && !"".equals(message)){
+
+     %>
+     <script type="text/javascript">
+         alert("<%=request.getAttribute("message")%>");
+     </script>
+     <%} %>
+
      <div class="menu">
             <jsp:include page="/WEB-INF/view/main.jsp">
                  <jsp:param name="user" value="${user}"/>
@@ -26,8 +36,8 @@
                            <div>Introduce:${product.introduce}</div>
                      </div>
                            <div class="ckl">
-                             <input type="button" onclick="javascript:window.location.href='controller?command='" value="Order"/>
-                             <input type="button" onclick="javascript:window.location.href='controller?command='" value="Add Cart"/>
+                             <input type="button" onclick="javascript:window.location.href='controller?command=addorder&userid=${user.userid}&proid=${product.id}&price=${product.price}'" value="Order"/>
+                             <input type="button" onclick="javascript:window.location.href='controller?command=addcart&userid=${user.userid}&proid=${product.id}'" value="Add Cart"/>
                            </div>
 
                  </div>

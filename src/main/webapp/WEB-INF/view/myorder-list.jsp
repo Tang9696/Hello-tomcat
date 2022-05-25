@@ -4,6 +4,15 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+    <%
+        Object message = request.getAttribute("message");
+        if(message!=null && !"".equals(message)){
+
+    %>
+    <script type="text/javascript">
+        alert("<%=request.getAttribute("message")%>");
+    </script>
+    <%} %>
     <body>
     <div class="menu">
        <jsp:include page="/WEB-INF/view/main.jsp">

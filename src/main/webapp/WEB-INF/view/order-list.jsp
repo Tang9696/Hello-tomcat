@@ -53,7 +53,7 @@
                            <div style="color:green;">Finished</div>
                      </c:if>
                      </td>
-        			<td style"width:90px;">${Orderitem.order.createtime}</td>
+        			<td style="width:90px;">${Orderitem.order.createtime}</td>
 
 
         			<td><a href="">check</a></td>

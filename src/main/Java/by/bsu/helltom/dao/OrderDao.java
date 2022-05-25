@@ -53,4 +53,33 @@ public class OrderDao {
         }
         return OrderitemList;
     }
+    public int addOrder(Order order) throws SQLException, ClassNotFoundException {
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        Connection connection = connectionFactory.ConnectionFactory();
+        ResultSet rs = null;
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `sellgoods`.`order` (`orderid`, `ordernumber`, `payment`, `status`, `paymenttime`, `Cancellationtime`, `createtime`, `updatetime`) VALUES (null, ?, ?, 10, null, NULL, ?, ?)",PreparedStatement.RETURN_GENERATED_KEYS);
+        preparedStatement.setString(1, order.getOrdernumber());
+        preparedStatement.setDouble(2, order.getPayment());
+        preparedStatement.setString(3, order.getCreatetime());
+        preparedStatement.setString(4, order.getUpdatetime());
+        preparedStatement.executeUpdate();
+        rs = preparedStatement.getGeneratedKeys();
+        if (rs.next()) {
+            //获取插入数据的Id(主键，自增长)
+            int oId = rs.getInt(1);
+            // 返回这个Id
+            return oId;
+        }
+        return -1;
+    }
+
+    public void addOrderItem(int oid,int uid,int proid) throws SQLException, ClassNotFoundException {
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        Connection connection = connectionFactory.ConnectionFactory();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `sellgoods`.`orderitem` (`id`, `o_orderid`, `o_userid`, `o_proid`) VALUES (null, ?, ?, ?)");
+        preparedStatement.setInt(1,oid);
+        preparedStatement.setInt(2,uid);
+        preparedStatement.setInt(3,proid);
+        preparedStatement.executeUpdate();
+    }
 }

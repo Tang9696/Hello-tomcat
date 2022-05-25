@@ -2,10 +2,7 @@ package by.bsu.helltom.dao;
 
 import by.bsu.helltom.entity.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +35,20 @@ public class CartDao {
             CartList.add(cart);
         }
         return CartList;
+    }
+
+    public void cartAdd(Cart cart) throws SQLException, ClassNotFoundException {
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        Connection connection = connectionFactory.ConnectionFactory();
+        Statement statement = connection.createStatement();
+
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `sellgoods`.`cart` (`carid`, `c_userid`, `c_proid`, `createtime`, `updatetime`) VALUES (null, ?, ?, ?, ?)");
+        preparedStatement.setInt(1,cart.getC_userid());
+        preparedStatement.setInt(2,cart.getC_proid());
+        preparedStatement.setString(3,cart.getCreatetime());
+        preparedStatement.setString(4,cart.getUpdatetime());
+        preparedStatement.executeUpdate();
+
     }
 
 }

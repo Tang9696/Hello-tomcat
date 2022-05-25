@@ -35,6 +35,14 @@ public class Cart {
         this.product = product;
     }
 
+    public Cart(Integer carid, Integer c_userid, Integer c_proid, String createtime, String updatetime) {
+        this.carid = carid;
+        this.c_userid = c_userid;
+        this.c_proid = c_proid;
+        this.createtime = createtime;
+        this.updatetime = updatetime;
+    }
+
     public Integer getCarid() {
         return carid;
     }
